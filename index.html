@@ -1,12 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-A-Sketch</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=IBM+Plex+Sans:ital,wght@0,200;0,600;1,100&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    
+    <script src="script.js"></script>
+
+    <div class="header">
+        <div class="left-header">
+            <img src="images/etchasketch logo.png" alt="small 2D picture of an Etch-A-Sketch">
+            <p>ETCH-A-SKETCH</p>
+        </div>
+        <div class="right-header">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="board-and-buttons">
+            <div class="top-buttons-container">
+                <div class="top">
+                    <button id="custom"><span>CUSTOM</span></button>
+                    <button id="grid-size"><span>16 x 16</span></button>
+                </div>
+                <div class="bottom">
+                    <button id="black"><span>BLACK</span></button>
+                    <button id="rgb"><span>RGB</span></button>
+                </div>
+            </div>
+            <div class="board"></div>
+            <div class="erase-button-container">
+                <button class="erase"><span>ERASE</span></button>
+            </div>
+        </div>
+    </div>
+
 </body>
+
 </html>

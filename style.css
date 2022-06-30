@@ -1,0 +1,168 @@
+html,
+body {
+    font-family: 'Baloo 2', cursive;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    border-bottom: 5px solid black;
+
+    height: 60px;
+    font-size: 32px;
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-header {
+    display: flex;
+}
+
+.right-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+img {
+    display: flex;
+    align-items: center;
+    height: 33px;
+    width: 45px;
+    margin: auto;
+    padding: 10px;
+
+    -webkit-filter: drop-shadow(4px 4px 0 black);
+    filter: drop-shadow(4px 4px 0 black);
+}
+
+.header p {
+    display: flex;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-buttons-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    height: 52px;
+    width: 348px;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.top {
+    display: flex;
+}
+
+.bottom {
+    display: flex;
+}
+
+
+.board {
+    height: 696px;
+    width: 696px;
+    border: 5px solid black;
+    background-color: white;
+}
+
+.erase-button-container {
+    display: flex;
+    justify-content: right;
+
+}
+
+.erase {
+    border-top: 0;
+    border-bottom: 5px solid black;
+}
+
+button {
+    font-family: 'Baloo 2', cursive;
+    width: 116px;
+    height: 26px;
+    background-color: white;
+    border: 5px solid black;
+    border-bottom: 0;
+}
+
+#custom,
+#black {
+    border-right: 0;
+}
+
+
+
+
+
+
+/* ------------------SWITCH------------------ */
+.switch {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: black;
+
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px black;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
