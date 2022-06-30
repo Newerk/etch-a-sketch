@@ -52,7 +52,7 @@ img {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
-    height: 52px;
+    height: 40px;
     width: 348px;
     padding: 0;
     margin-bottom: 0;
@@ -88,10 +88,15 @@ img {
 button {
     font-family: 'Baloo 2', cursive;
     width: 116px;
-    height: 26px;
+    height: 20px;
     background-color: white;
     border: 5px solid black;
     border-bottom: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 #custom,

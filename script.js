@@ -1,11 +1,17 @@
+const gridSize = document.querySelector('#grid-size');
+const gridSizeSpan = gridSize.querySelector('span');
+
+console.log(gridSizeSpan);
+
 function createBoard(size) {
-    // let arr = [];
-    let items = document.querySelector('.board');
+    let board = document.querySelector('.board');
 
     for (let i = 0; i < Math.pow(size, 2); i++) {
-        items.appendChild(document.createElement('div'));
+        let pixel = document.createElement('div');
+        pixel.className = 'pixel';
+        board.appendChild(pixel);
     }    
-    return items;
+    return board;
 }
 
- console.log(createBoard(2));
+ console.log(createBoard(8));
