@@ -16,7 +16,8 @@
 </head>
 
 <body>
-    <script src="script.js" defer></script>
+
+  <div id="num" hidden></div>
 
     <div class="header">
         <div class="left-header">
@@ -24,7 +25,7 @@
             <p>ETCH-A-SKETCH</p>
         </div>
         <div class="right-header">
-            <label class="switch">
+            <label onclick="toggleFunction()" class="switch" for="checkbox">
                 <input type="checkbox">
                 <span class="slider round"></span>
             </label>
@@ -49,6 +50,9 @@
             </div>
         </div>
     </div>
+    <script src="script.js">
+        let value = 0;
+    </script>
 </body>
 
 </html>
