@@ -1,3 +1,6 @@
+defaultBoard();
+
+
 const gridSize = document.querySelector('#grid-size');
 const gridSizeSpan = gridSize.querySelector('span');
 
@@ -10,13 +13,15 @@ function createBoard(size) {
         for (let i = 0; i < Math.pow(size, 2); i++) {
             let pixel = document.createElement('div');
             pixel.className = 'pixel';
-            board.appendChild(pixel);
+            buildPixel(pixel, size);
+            board.append(pixel);
         }
         return board;
     } else {
         return;
     }
 }
+
 
 //Upon loading of webpage, the default board size will be 16x16
 function defaultBoard(){
@@ -25,8 +30,19 @@ function defaultBoard(){
         for (let i = 0; i < Math.pow(16, 2); i++) {
             let pixel = document.createElement('div');
             pixel.className = 'pixel';
-            board.appendChild(pixel);
+            buildPixel(pixel, 16);
+            board.append(pixel);
         }
-        return board;
 
+        return board;
 }
+
+
+//write a function that calculates and sets the size of each pixel. will set the style in this function
+function buildPixel(pixel, size) {
+    let pixelLength = (696/size)-2;
+
+    return pixel.setAttribute('style', `width: ${pixelLength}px; height: ${pixelLength}px;`);
+}
+
+// createBoard(2);
