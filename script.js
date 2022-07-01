@@ -1,5 +1,29 @@
 defaultBoard();
 
+//eventlisteners for clickable buttons on page
+// let topButtons = document.querySelector('.top');
+// topButtons.addEventListener('click', function(e) {
+
+//     if (e.target.id === 'custom') {
+//         document.body.setAttribute('style', 'background-color: yellow');
+//     }   
+// });
+
+let toggle = document.querySelector('.switch');
+toggle.addEventListener('click', function(e){
+
+    if (e.target !== e.currentTarget) {
+                document.body.setAttribute('style', 'background-color: #38404A;color: white');
+                document.querySelector('.header').setAttribute('style', 'background-color: #181921');
+                document.querySelector('#custom').setAttribute('style', 'background-color: #181921; color: white;');
+                document.querySelector('#grid-size').setAttribute('style', 'background-color: #181921; color: white;');
+                document.querySelector('#black').setAttribute('style', 'background-color: #181921; color: white;');
+                document.querySelector('#rgb').setAttribute('style', 'background-color: #181921; color: white;');
+                document.querySelector('.erase').setAttribute('style', 'background-color: #181921; color: white;');
+
+    }
+});
+
 
 const gridSize = document.querySelector('#grid-size');
 const gridSizeSpan = gridSize.querySelector('span');
