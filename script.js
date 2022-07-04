@@ -1,10 +1,8 @@
-defaultBoard();
+// defaultBoard();
 const num = document.getElementById('num');
 
 var counter = 0;
 num.innerHTML = counter;
-
-
 
 const gridSize = document.querySelector('#grid-size');
 const gridSizeSpan = gridSize.querySelector('span');
@@ -12,6 +10,7 @@ const gridSizeSpan = gridSize.querySelector('span');
 //user can enter a custom pixel density for the board
 function createBoard(size) {
     let board = document.querySelector('.board');
+    board.setAttribute('style', `grid-template-columns: repeat(${size}, 1fr);`)
     gridSizeSpan.textContent = `${size} x ${size}`;
 
     if (size > 0 && size <= 100) {
@@ -31,6 +30,8 @@ function createBoard(size) {
 //Upon loading of webpage, the default board size will be 16x16
 function defaultBoard() {
     let board = document.querySelector('.board');
+    board.setAttribute('style', `grid-template-columns: repeat(16, 1fr);`)
+
 
     for (let i = 0; i < Math.pow(16, 2); i++) {
         let pixel = document.createElement('div');
@@ -50,7 +51,7 @@ function buildPixel(pixel, size) {
     return pixel.setAttribute('style', `width: ${pixelLength}px; height: ${pixelLength}px;`);
 }
 
-// createBoard(2);
+createBoard(2);
 
 
 function toggleTheme() {
@@ -59,7 +60,7 @@ function toggleTheme() {
     if (num.innerHTML % 2 === 0) {
      darkMode();
  
-    } else{
+    } else {
      lightMode();
  
     }
