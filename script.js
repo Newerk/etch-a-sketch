@@ -20,6 +20,7 @@ function toggleFunction() {
 }
 
 
+
 //eventlisteners for clickable buttons on page
 // let topButtons = document.querySelector('.top');
 // topButtons.addEventListener('click', function(e) {
@@ -36,17 +37,21 @@ function darkMode() {
     document.querySelector('#black').setAttribute('style', 'background-color: #181921; color: white;');
     document.querySelector('#rgb').setAttribute('style', 'background-color: #181921; color: white;');
     document.querySelector('.erase').setAttribute('style', 'background-color: #181921; color: white;');
+    document.querySelector('.slider').setAttribute('style', 'background-color: #38404A');
+
+
 }
 
 function lightMode() {
-    document.body.setAttribute('style', 'background-color: #white ;color: blacks');
-
+    document.body.setAttribute('style', 'background-color: #white ;color: black');
     document.querySelector('.header').setAttribute('style', 'background-color: #D9D9D9');
     document.querySelector('#custom').setAttribute('style', 'background-color: white; color: black;');
     document.querySelector('#grid-size').setAttribute('style', 'background-color: white; color: black;');
     document.querySelector('#black').setAttribute('style', 'background-color: white; color: black;');
     document.querySelector('#rgb').setAttribute('style', 'background-color: white; color: black;');
     document.querySelector('.erase').setAttribute('style', 'background-color: white; color: black;');
+    document.querySelector('.slider').setAttribute('style', 'background-color: white;');
+
 
 }
 
