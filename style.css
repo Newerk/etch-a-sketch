@@ -104,6 +104,8 @@ button {
 .board {
     display: grid;
 
+
+
     height: 696px;
     width: 696px;
     border: 5px solid black;
@@ -124,7 +126,6 @@ button {
     height: 34px;
 
 }
-
 
 .slider {
     position: absolute;

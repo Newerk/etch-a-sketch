@@ -11,7 +11,8 @@ const gridSizeSpan = gridSize.querySelector('span');
 //user can enter a custom pixel density for the board
 function createBoard(size) {
     let board = document.querySelector('.board');
-    board.setAttribute('style', `grid-template-columns: repeat(${size}, 1fr);`)
+    board.setAttribute('style', `grid-template-columns: repeat(${size}, 1fr); grid-template-rows: repeat(${size}, 1fr)`)
+
     gridSizeSpan.textContent = `${size} x ${size}`;
 
     if (size > 0 && size <= 100) {
@@ -19,10 +20,11 @@ function createBoard(size) {
             let pixel = document.createElement('div');
             pixel.className = 'pixel';
             buildPixel(pixel, size);
+
+            board.append(pixel);
             pixel.addEventListener('mouseover', () => {
                 pixel.setAttribute('style', 'background-color: black')
             });
-            board.append(pixel);
         }
         return board;
     } else {
@@ -34,16 +36,17 @@ function createBoard(size) {
 //Upon loading of webpage, the default board size will be 16x16
 function defaultBoard() {
     let board = document.querySelector('.board');
-    board.setAttribute('style', `grid-template-columns: repeat(16, 1fr);`);
+    board.setAttribute('style', `grid-template-columns: repeat(16, 1fr); grid-template-rows: repeat(16, 1fr)`);
 
     for (let i = 0; i < Math.pow(16, 2); i++) {
         let pixel = document.createElement('div');
         pixel.className = 'pixel';
         buildPixel(pixel, 16);
+
+        board.append(pixel);
         pixel.addEventListener('mouseover', () => {
             pixel.setAttribute('style', 'background-color: black')
         });
-        board.append(pixel);
     }
 
     return board;
@@ -58,7 +61,7 @@ function buildPixel(pixel, size) {
     return pixel.setAttribute('style', `width: ${pixelLength}px; height: ${pixelLength}px;`);
 }
 
-// createBoard(2);
+// createBoard(20);
 
 
 function toggleTheme() {
