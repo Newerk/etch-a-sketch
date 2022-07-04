@@ -6,61 +6,6 @@ num.innerHTML = counter;
 
 
 
-function toggleFunction() {
-   num.innerHTML = counter++;
-
-   if (num.innerHTML % 2 === 0) {
-    darkMode();
-
-   } else{
-    lightMode();
-
-   }
-
-}
-
-
-
-//eventlisteners for clickable buttons on page
-// let topButtons = document.querySelector('.top');
-// topButtons.addEventListener('click', function(e) {
-
-//     if (e.target.id === 'custom') {
-//         document.body.setAttribute('style', 'background-color: yellow');
-//     }   
-// });
-function darkMode() {
-    document.body.setAttribute('style', 'background-color: #38404A;color: white');
-    document.querySelector('.header').setAttribute('style', 'background-color: #181921');
-    document.querySelector('#custom').setAttribute('style', 'background-color: #181921; color: white;');
-    document.querySelector('#grid-size').setAttribute('style', 'background-color: #181921; color: white;');
-    document.querySelector('#black').setAttribute('style', 'background-color: #181921; color: white;');
-    document.querySelector('#rgb').setAttribute('style', 'background-color: #181921; color: white;');
-    document.querySelector('.erase').setAttribute('style', 'background-color: #181921; color: white;');
-    document.querySelector('.slider').setAttribute('style', 'background-color: #38404A');
-
-
-}
-
-function lightMode() {
-    document.body.setAttribute('style', 'background-color: #white ;color: black');
-    document.querySelector('.header').setAttribute('style', 'background-color: #D9D9D9');
-    document.querySelector('#custom').setAttribute('style', 'background-color: white; color: black;');
-    document.querySelector('#grid-size').setAttribute('style', 'background-color: white; color: black;');
-    document.querySelector('#black').setAttribute('style', 'background-color: white; color: black;');
-    document.querySelector('#rgb').setAttribute('style', 'background-color: white; color: black;');
-    document.querySelector('.erase').setAttribute('style', 'background-color: white; color: black;');
-    document.querySelector('.slider').setAttribute('style', 'background-color: white;');
-
-
-}
-
-
-
-
-
-
-
 const gridSize = document.querySelector('#grid-size');
 const gridSizeSpan = gridSize.querySelector('span');
 
@@ -106,3 +51,39 @@ function buildPixel(pixel, size) {
 }
 
 // createBoard(2);
+
+
+function toggleTheme() {
+    num.innerHTML = counter++;
+ 
+    if (num.innerHTML % 2 === 0) {
+     darkMode();
+ 
+    } else{
+     lightMode();
+ 
+    }
+ 
+ }
+
+function darkMode() {
+    document.body.setAttribute('style', 'background-color: #38404A;color: white');
+    document.querySelector('.header').setAttribute('style', 'background-color: #181921');
+    document.querySelector('#custom').setAttribute('style', 'background-color: #181921; color: white;');
+    document.querySelector('#grid-size').setAttribute('style', 'background-color: #181921; color: white;');
+    document.querySelector('#black').setAttribute('style', 'background-color: #181921; color: white;');
+    document.querySelector('#rgb').setAttribute('style', 'background-color: #181921; color: white;');
+    document.querySelector('.erase').setAttribute('style', 'background-color: #181921; color: white;');
+    document.querySelector('.slider').setAttribute('style', 'background-color: #38404A');
+}
+
+function lightMode() {
+    document.body.setAttribute('style', 'background-color: #white ;color: black');
+    document.querySelector('.header').setAttribute('style', 'background-color: #D9D9D9');
+    document.querySelector('#custom').setAttribute('style', 'background-color: white; color: black;');
+    document.querySelector('#grid-size').setAttribute('style', 'background-color: white; color: black;');
+    document.querySelector('#black').setAttribute('style', 'background-color: white; color: black;');
+    document.querySelector('#rgb').setAttribute('style', 'background-color: white; color: black;');
+    document.querySelector('.erase').setAttribute('style', 'background-color: white; color: black;');
+    document.querySelector('.slider').setAttribute('style', 'background-color: white;');
+}
