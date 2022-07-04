@@ -63,16 +63,16 @@ function buildPixel(pixel, size) {
 
 function toggleTheme() {
     num.innerHTML = counter++;
- 
+
     if (num.innerHTML % 2 === 0) {
-     darkMode();
- 
+        darkMode();
+
     } else {
-     lightMode();
- 
+        lightMode();
+
     }
- 
- }
+
+}
 
 function darkMode() {
     document.body.setAttribute('style', 'background-color: #38404A;color: white');
