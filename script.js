@@ -140,6 +140,7 @@ function lightMode() {
     });
 
 
+    //Colors used to fill color picker grid, and will be used to assign pixel color when selected by the user
     var colors =
         ["F18F99", "FABFA5", "FFEC7A", "6BFEB0", "6CB5FF", "B59EF6", "D375F9",
             "ED707C", "F9AD89", "FFE756", "23FF88", "40A2FF", "9E83F4", "C451F4",

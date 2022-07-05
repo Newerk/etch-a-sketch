@@ -6,7 +6,7 @@ body {
 }
 
 
-/* .left-menu {
+.left-menu {
     z-index: 1; 
 	position: absolute;
     left: 100px;
@@ -15,9 +15,9 @@ body {
     height: 696px;
     border: 5px solid black;
 
-} */
+}
 
-/* .right-menu {
+.right-menu {
     z-index: 1; 
 	position: absolute;
     right: 100px;
@@ -25,7 +25,7 @@ body {
     width: 250px;
     height: 696px;
     border: 5px solid black;
-} */
+}
 
 .header {
     border-bottom: 5px solid black;
