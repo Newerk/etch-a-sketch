@@ -1,15 +1,30 @@
-defaultBoard();
+// defaultBoard();
 const num = document.getElementById('num');
 
+//counter used to track if site is using light or dark theme. Theme depends if its even or odd
 var counter = 0;
 num.innerHTML = counter;
 
 const gridSize = document.querySelector('#grid-size');
 const gridSizeSpan = gridSize.querySelector('span');
 
+var boardIsDefault = true;
+
+
+//eventListeners for Buttons
+let eraseBtn = document.querySelector('.erase');
+eraseBtn.addEventListener('click', () => {
+    eraseButton();
+});
+
+
+
+
+
 
 //user can enter a custom pixel density for the board
 function createBoard(size) {
+    boardIsDefault = false;
     let board = document.querySelector('.board');
     board.setAttribute('style', `grid-template-columns: repeat(${size}, 1fr); grid-template-rows: repeat(${size}, 1fr)`)
 
@@ -35,6 +50,7 @@ function createBoard(size) {
 
 //Upon loading of webpage, the default board size will be 16x16
 function defaultBoard() {
+    boardIsDefault = true;
     let board = document.querySelector('.board');
     board.setAttribute('style', `grid-template-columns: repeat(16, 1fr); grid-template-rows: repeat(16, 1fr)`);
 
@@ -61,7 +77,7 @@ function buildPixel(pixel, size) {
     return pixel.setAttribute('style', `width: ${pixelLength}px; height: ${pixelLength}px;`);
 }
 
-// createBoard(20);
+createBoard(20);
 
 
 function toggleTheme() {
@@ -77,6 +93,11 @@ function toggleTheme() {
 
 }
 
+function eraseButton() {
+    let pixel = document.querySelectorAll('.pixel');
+    pixel.forEach(el => el.setAttribute('style', 'background-color: white'));
+}
+
 function darkMode() {
     document.body.setAttribute('style', 'background-color: #38404A;color: white');
     document.querySelector('.header').setAttribute('style', 'background-color: #181921');
@@ -86,6 +107,15 @@ function darkMode() {
     document.querySelector('#rgb').setAttribute('style', 'background-color: #181921; color: white;');
     document.querySelector('.erase').setAttribute('style', 'background-color: #181921; color: white;');
     document.querySelector('.slider').setAttribute('style', 'background-color: #38404A');
+
+    //hover effects for buttons
+    document.querySelector('.slider').addEventListener('mouseenter', () => {
+        document.querySelector('.slider').setAttribute('style', 'background-color: #E90100')
+    });
+    document.querySelector('.slider').addEventListener('mouseleave', () => {
+        document.querySelector('.slider').setAttribute('style', 'background-color: #38404A')
+    });
+
 }
 
 function lightMode() {
@@ -97,4 +127,14 @@ function lightMode() {
     document.querySelector('#rgb').setAttribute('style', 'background-color: white; color: black;');
     document.querySelector('.erase').setAttribute('style', 'background-color: white; color: black;');
     document.querySelector('.slider').setAttribute('style', 'background-color: white;');
+
+    //hover effects for buttons
+    document.querySelector('.slider').addEventListener('mouseenter', () => {
+        document.querySelector('.slider').setAttribute('style', 'background-color: #E90100')
+    });
+    document.querySelector('.slider').addEventListener('mouseleave', () => {
+        document.querySelector('.slider').setAttribute('style', 'background-color: white')
+    });
+
+
 }

@@ -5,6 +5,15 @@ body {
     padding: 0;
 }
 
+
+.right-menu {
+    z-index: 1000; 
+	position: absolute;
+    width: 100px;
+    height: 700px;
+    border: 5px solid black;
+}
+
 .header {
     border-bottom: 5px solid black;
 
@@ -79,6 +88,13 @@ img {
     border-bottom: 5px solid black;
 }
 
+.erase:hover {
+    background-color: #E90100;
+}
+.erase:active {
+    background-color: aqua;
+}
+
 button {
     font-family: 'Baloo 2', cursive;
     width: 116px;
@@ -142,4 +158,13 @@ button {
     border-radius: 34px;
     background-color: white;
 
+}
+
+.slider:active{
+    background-color: white;
+
+}
+
+.slider:hover {
+    background-color: #E90100;
 }
