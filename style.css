@@ -159,25 +159,15 @@ button {
 }
 
 /* ----------------MENUS---------------- */
-.left-menu {
-    z-index: 1;
-    position: absolute;
-    left: 100px;
-    top: 125px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 320px;
-    height: 696px;
-    border: 5px solid black;
-
-}
-
 .menu-left-header, .menu-right-header{
     display: flex;
     align-items: center;
-    font-size: 28px;
+    font-size: 32px;
+}
+
+.title {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .x-button {
@@ -188,13 +178,26 @@ button {
     position: absolute;
     z-index: 2;
     font-size: 20px;
+    background-color: transparent;
+}
+
+.left-menu {
+    z-index: 1;
+    position: absolute;
+    left: 100px;
+    top: 125px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 320px;
+    height: 696px;
+    border: 5px solid black;
+
+    background-color: #D9D9D9;
+
 
 }
 
-.title {
-    margin-left: auto;
-    margin-right: auto;
-}
 .right-menu {
     z-index: 1;
     position: absolute;
@@ -203,4 +206,25 @@ button {
     width: 320px;
     height: 696px;
     border: 5px solid black;
+
+    background-color: #D9D9D9;
+
+}
+
+.right-menu-buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.right-menu-buttons-container button {
+    border-bottom: 5px solid black;
+    height: 50px;
+    width: 240px;
+    font-size: 28px;
+    background-color: white;
+
 }
