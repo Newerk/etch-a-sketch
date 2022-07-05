@@ -6,13 +6,26 @@ body {
 }
 
 
-.right-menu {
-    z-index: 1000; 
+/* .left-menu {
+    z-index: 1; 
 	position: absolute;
-    width: 100px;
-    height: 700px;
+    left: 100px;
+    top: 125px;
+    width: 250px;
+    height: 696px;
     border: 5px solid black;
-}
+
+} */
+
+/* .right-menu {
+    z-index: 1; 
+	position: absolute;
+    right: 100px;
+    top: 125px;
+    width: 250px;
+    height: 696px;
+    border: 5px solid black;
+} */
 
 .header {
     border-bottom: 5px solid black;
@@ -119,9 +132,6 @@ button {
 
 .board {
     display: grid;
-
-
-
     height: 696px;
     width: 696px;
     border: 5px solid black;

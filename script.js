@@ -18,7 +18,10 @@ eraseBtn.addEventListener('click', () => {
 });
 
 
-
+let customBtn = document.querySelector('.custom');
+customBtn.addEventListener('click', () => {
+    //insert code here that will open up the color picker menu
+});
 
 
 
@@ -77,7 +80,7 @@ function buildPixel(pixel, size) {
     return pixel.setAttribute('style', `width: ${pixelLength}px; height: ${pixelLength}px;`);
 }
 
-createBoard(20);
+createBoard(8);
 
 
 function toggleTheme() {
