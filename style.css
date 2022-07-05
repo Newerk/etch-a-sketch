@@ -5,28 +5,6 @@ body {
     padding: 0;
 }
 
-
-.left-menu {
-    z-index: 1; 
-	position: absolute;
-    left: 100px;
-    top: 125px;
-    width: 250px;
-    height: 696px;
-    border: 5px solid black;
-
-}
-
-.right-menu {
-    z-index: 1; 
-	position: absolute;
-    right: 100px;
-    top: 125px;
-    width: 250px;
-    height: 696px;
-    border: 5px solid black;
-}
-
 .header {
     border-bottom: 5px solid black;
 
@@ -49,7 +27,7 @@ body {
     padding: 10px;
 }
 
-img {
+.logo {
     display: flex;
     align-items: center;
     height: 33px;
@@ -104,6 +82,7 @@ img {
 .erase:hover {
     background-color: #E90100;
 }
+
 .erase:active {
     background-color: aqua;
 }
@@ -170,11 +149,58 @@ button {
 
 }
 
-.slider:active{
+.slider:active {
     background-color: white;
 
 }
 
 .slider:hover {
     background-color: #E90100;
+}
+
+/* ----------------MENUS---------------- */
+.left-menu {
+    z-index: 1;
+    position: absolute;
+    left: 100px;
+    top: 125px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 320px;
+    height: 696px;
+    border: 5px solid black;
+
+}
+
+.menu-left-header, .menu-right-header{
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+}
+
+.x-button {
+    border: none;
+    width: 20px;
+    height: 20px;
+    margin-left: 90%;
+    position: absolute;
+    z-index: 2;
+    font-size: 20px;
+
+}
+
+.title {
+    margin-left: auto;
+    margin-right: auto;
+}
+.right-menu {
+    z-index: 1;
+    position: absolute;
+    right: 100px;
+    top: 125px;
+    width: 320px;
+    height: 696px;
+    border: 5px solid black;
 }
