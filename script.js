@@ -8,7 +8,6 @@ num.innerHTML = counter;
 const gridSize = document.querySelector('#grid-size');
 const gridSizeSpan = gridSize.querySelector('span');
 
-var boardIsDefault = true;
 
 
 //eventListeners for Buttons
@@ -18,16 +17,14 @@ eraseBtn.addEventListener('click', () => {
 });
 
 
-let customBtn = document.querySelector('.custom');
-customBtn.addEventListener('click', () => {
-    //insert code here that will open up the color picker menu
-});
-
+// let customBtn = document.querySelector('.custom');
+// customBtn.addEventListener('click', () => {
+//     //insert code here that will open up the color picker menu
+// });
 
 
 //user can enter a custom pixel density for the board
 function createBoard(size) {
-    boardIsDefault = false;
     let board = document.querySelector('.board');
     board.setAttribute('style', `grid-template-columns: repeat(${size}, 1fr); grid-template-rows: repeat(${size}, 1fr)`)
 
@@ -41,7 +38,7 @@ function createBoard(size) {
 
             board.append(pixel);
             pixel.addEventListener('mouseover', () => {
-                pixel.setAttribute('style', 'background-color: black')
+                pixel.setAttribute('style', 'background-color: black');
             });
         }
         return board;
@@ -50,10 +47,12 @@ function createBoard(size) {
     }
 }
 
+createBoard(33);
+
+
 
 //Upon loading of webpage, the default board size will be 16x16
 function defaultBoard() {
-    boardIsDefault = true;
     let board = document.querySelector('.board');
     board.setAttribute('style', `grid-template-columns: repeat(16, 1fr); grid-template-rows: repeat(16, 1fr)`);
 
@@ -80,7 +79,6 @@ function buildPixel(pixel, size) {
     return pixel.setAttribute('style', `width: ${pixelLength}px; height: ${pixelLength}px;`);
 }
 
-createBoard(8);
 
 
 function toggleTheme() {
