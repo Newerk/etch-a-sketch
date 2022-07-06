@@ -36,7 +36,7 @@
         <div class="board-and-buttons">
             <div class="top-buttons-container">
                 <div class="top">
-                    <button id="custom">CUSTOM</button>
+                    <button id="custom" onclick="buildColorPicker()">CUSTOM</button>
                     <button id="grid-size"><span>16 x 16</span></button>
                 </div>
                 <div class="bottom">
@@ -57,7 +57,9 @@
                 <div class="title">COLOR PICKER</div>
                 <button class="x-button">&#10060</button>
             </div>
-            <div class="color-picker-grid"></div>
+            <div class="color-grid-container">
+                <div class="color-picker-grid"></div>
+            </div>
             <div class="color-preview-container">
                 <div id="color-preview"></div>
                 <button id="apply-button">APPLY</button>

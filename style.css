@@ -107,7 +107,7 @@ button {
 }
 
 
-/* ----------------BUILD BOARD---------------- */
+/* ----------------BUILD BOARD--------------- */
 
 .board {
     display: grid;
@@ -121,6 +121,31 @@ button {
     border: 1px solid rgb(115, 115, 115);
 
 }
+
+/* -------------COLOR PICKER GRID------------ */
+.color-picker-grid{
+    display: grid;
+    height: 245px;
+    width: 245px;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    border: 2.5px solid black;
+}
+
+.color-grid-container{
+    display: flex;
+    border: 2px dotted red;
+    margin-top: 30px;
+}
+
+.cPixel {
+    border: 2.5px solid black;
+
+}
+
+
 
 /* ------------------SWITCH------------------ */
 .switch {
@@ -158,7 +183,7 @@ button {
     background-color: #E90100;
 }
 
-/* ----------------MENUS---------------- */
+/* -----------------MENUS----------------- */
 .menu-left-header, .menu-right-header{
     display: flex;
     align-items: center;
@@ -167,7 +192,8 @@ button {
 
 .title {
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto;  
+
 }
 
 .x-button {

@@ -1,4 +1,16 @@
 // defaultBoard();
+
+//Colors used to fill color picker grid, and will be used to assign pixel color when selected by the user
+var colors =
+    ["F18F99", "FABFA5", "FFEC7A", "6BFEB0", "6CB5FF", "B59EF6", "D375F9",
+        "ED707C", "F9AD89", "FFE756", "23FF88", "40A2FF", "9E83F4", "C451F4",
+        "E64A57", "F79466", "FEDF27", "01EC6C", "118AFF", "845BF0", "B224F1",
+        "E01D2E", "F4793D", "F2D200", "00B453", "0071DD", "6334EC", "980DD4",
+        "B01424", "F3570E", "BBA000", "027B3A", "0052A3", "4713D8", "720A9E",
+        "7F0F1C", "BD4409", "857200", "004C24", "01376D", "3610A5", "4E066A",
+        "520912", "893107", "534700", "002812", "00213F", "240974", "2D0340"];
+
+
 const num = document.getElementById('num');
 
 //counter used to track if site is using light or dark theme. Theme depends if its even or odd
@@ -22,6 +34,20 @@ eraseBtn.addEventListener('click', () => {
 //     //insert code here that will open up the color picker menu
 // });
 
+
+//color picker grid for the left menu
+function buildColorPicker() {
+    let grid = document.querySelector('.color-picker-grid');
+    grid.setAttribute('style', 'grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(7, 1fr)');
+
+    for (let i = 0; i < Math.pow(7, 2); i++) {
+        let cPixel = document.createElement('div');
+        cPixel.className = 'cPixel';
+        cPixel.setAttribute('style', `background-color: #${colors[i]}`);
+        grid.append(cPixel);
+
+    }
+}
 
 //user can enter a custom pixel density for the board
 function createBoard(size) {
@@ -138,13 +164,5 @@ function lightMode() {
     });
 
 
-    //Colors used to fill color picker grid, and will be used to assign pixel color when selected by the user
-    var colors =
-        ["F18F99", "FABFA5", "FFEC7A", "6BFEB0", "6CB5FF", "B59EF6", "D375F9",
-            "ED707C", "F9AD89", "FFE756", "23FF88", "40A2FF", "9E83F4", "C451F4",
-            "E64A57", "F79466", "FEDF27", "01EC6C", "118AFF", "845BF0", "B224F1",
-            "E01D2E", "F4793D", "F2D200", "00B453", "0071DD", "6334EC", "980DD4",
-            "B01424", "F3570E", "BBA000", "027B3A", "0052A3", "4713D8", "720A9E",
-            "7F0F1C", "BD4409", "857200", "004C24", "01376D", "3610A5", "4E066A",
-            "520912", "893107", "534700", "002812", "00213F", "240974", "2D0340"];
+
 }
