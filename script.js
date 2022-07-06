@@ -24,19 +24,35 @@ const gridSizeSpan = gridSize.querySelector('span');
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 var slider = document.getElementById("myRange");
-var output1 = document.getElementById("num1");
-var output2 = document.getElementById("num2");
+var output1 = document.getElementById("num1"),
+    output2 = document.getElementById("num2");
 
 output1.innerHTML = slider.value; // Display the default slider value
 output2.innerHTML = slider.value; // Display the default slider value
 
 
 // Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  output1.innerHTML = this.value;
-  output2.innerHTML = this.value;
+slider.oninput = function () {
+    output1.innerHTML = this.value;
+    output2.innerHTML = this.value;
 
 }
+
+
+
+var input = document.querySelectorAll("input");
+for(const element of input){
+element.addEventListener("input", function(){
+    var red = document.getElementById("red").value,
+        green = document.getElementById("green").value,
+        blue = document.getElementById("blue").value;
+        var display = document.getElementById("color-preview");
+    display.style.background = `rgb(${red},${green},${blue})`;
+});
+}
+
+
+
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -173,7 +189,7 @@ function darkMode() {
     document.querySelector('#sixtyfour').setAttribute('style', 'background-color: #38404A; color: white');
     document.querySelector('#apply-button').setAttribute('style', 'background-color: #38404A; color: white');
 
-    
+
 
 
 }
