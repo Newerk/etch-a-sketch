@@ -228,9 +228,7 @@ button {
 #color-preview {
     border: 5px solid black;
     height: 40px;
-    width: 170px;
-    /* background-image: url('images/png-image-squares-background-free-vector.webp'); */
-    /* background-size: 100%; */
+    width: 150px;
     background-color: #000000;
     
 }
