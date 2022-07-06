@@ -143,6 +143,19 @@ function darkMode() {
         document.querySelector('.slider').setAttribute('style', 'background-color: #38404A')
     });
 
+    //menus
+    document.querySelector('.right-menu').setAttribute('style', 'background-color: #181921');
+    document.querySelector('.left-menu').setAttribute('style', 'background-color: #181921');
+    document.querySelector('#four').setAttribute('style', 'background-color: #38404A; color: white');
+    document.querySelector('#eight').setAttribute('style', 'background-color: #38404A; color: white');
+    document.querySelector('#sixteen').setAttribute('style', 'background-color: #38404A; color: white');
+    document.querySelector('#thirtytwo').setAttribute('style', 'background-color: #38404A; color: white');
+    document.querySelector('#sixtyfour').setAttribute('style', 'background-color: #38404A; color: white');
+    document.querySelector('#apply-button').setAttribute('style', 'background-color: #38404A; color: white');
+
+    
+
+
 }
 
 function lightMode() {
@@ -162,6 +175,16 @@ function lightMode() {
     document.querySelector('.slider').addEventListener('mouseleave', () => {
         document.querySelector('.slider').setAttribute('style', 'background-color: white')
     });
+
+    //menus
+    document.querySelector('.right-menu').setAttribute('style', 'background-color: #D9D9D9');
+    document.querySelector('.left-menu').setAttribute('style', 'background-color: #D9D9D9');
+    document.querySelector('#four').setAttribute('style', 'background-color: white; color: black');
+    document.querySelector('#eight').setAttribute('style', 'background-color: white; color: black');
+    document.querySelector('#sixteen').setAttribute('style', 'background-color: white; color: black');
+    document.querySelector('#thirtytwo').setAttribute('style', 'background-color: white; color: black');
+    document.querySelector('#sixtyfour').setAttribute('style', 'background-color: white; color: black');
+    document.querySelector('#apply-button').setAttribute('style', 'background-color: white; color: black');
 
 
 
