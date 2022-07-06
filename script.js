@@ -24,12 +24,18 @@ const gridSizeSpan = gridSize.querySelector('span');
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
+var output1 = document.getElementById("num1");
+var output2 = document.getElementById("num2");
+
+output1.innerHTML = slider.value; // Display the default slider value
+output2.innerHTML = slider.value; // Display the default slider value
+
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
-  output.innerHTML = this.value;
+  output1.innerHTML = this.value;
+  output2.innerHTML = this.value;
+
 }
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
