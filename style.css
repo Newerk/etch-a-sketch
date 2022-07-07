@@ -316,14 +316,13 @@ button {
     display: flex;
     flex-direction: column;
     width: 240px;
-    margin-left: 38px;
-    gap: 40px;
-    
+    margin-left: 30px;
+    gap: 40px;    
   }
 
   #red, #green , #blue {
     appearance: none;
-    width: 100%; /* Full-width */
+    width: 105%; /* Full-width */
     height: 10px; /* Specified height */
     background: black;
     outline: none; /* Remove outline */
