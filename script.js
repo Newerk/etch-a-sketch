@@ -66,6 +66,9 @@ eraseBtn.addEventListener('click', () => {
     eraseButton();
 });
 
+let blackBtn = document.querySelector('#black');
+blackBtn.addEventListener('click', ( )=> penColor = 'black');
+
 
 // let customBtn = document.querySelector('.custom');
 // customBtn.addEventListener('click', () => {
