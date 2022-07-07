@@ -1,4 +1,5 @@
 // defaultBoard();
+var isDrawing = false;
 
 //Colors used to fill color picker grid, and will be used to assign pixel color when selected by the user
 var colors =
@@ -41,14 +42,14 @@ slider.oninput = function () {
 
 
 var input = document.querySelectorAll("input");
-for(const element of input){
-element.addEventListener("input", function(){
-    var red = document.getElementById("red").value,
-        green = document.getElementById("green").value,
-        blue = document.getElementById("blue").value;
+for (const element of input) {
+    element.addEventListener("input", function () {
+        var red = document.getElementById("red").value,
+            green = document.getElementById("green").value,
+            blue = document.getElementById("blue").value;
         var display = document.getElementById("color-preview");
-    display.style.background = `rgb(${red},${green},${blue})`;
-});
+        display.style.background = `rgb(${red},${green},${blue})`;
+    });
 }
 
 
@@ -85,23 +86,35 @@ function buildColorPicker() {
     }
 }
 
+
 //user can enter a custom pixel density for the board
 function createBoard(size) {
     let board = document.querySelector('.board');
-    board.setAttribute('style', `grid-template-columns: repeat(${size}, 1fr); grid-template-rows: repeat(${size}, 1fr)`)
-
+    board.setAttribute('style', `grid-template-columns: repeat(${size}, 1fr); grid-template-rows: repeat(${size}, 1fr)`);
     gridSizeSpan.textContent = `${size} x ${size}`;
-
     if (size > 0 && size <= 100) {
         for (let i = 0; i < Math.pow(size, 2); i++) {
             let pixel = document.createElement('div');
             pixel.className = 'pixel';
             buildPixel(pixel, size);
-
             board.append(pixel);
+
             pixel.addEventListener('mouseover', () => {
-                pixel.setAttribute('style', 'background-color: black');
+                pixel.addEventListener('mousedown', () => {
+                    isDrawing = true;
+                })
+                pixel.addEventListener('mouseup', () => {
+                    isDrawing = false;
+                })
+                if (isDrawing) {
+                    pixel.setAttribute('style', 'background-color: black');
+                }
+                if (!isDrawing) {
+                    return;
+                }
             });
+            pixel.addEventListener('click', ()=> pixel.setAttribute('style', 'background-color: black'));
+
         }
         return board;
     } else {
@@ -128,10 +141,8 @@ function defaultBoard() {
             pixel.setAttribute('style', 'background-color: black')
         });
     }
-
     return board;
 }
-
 
 
 //write a function that calculates and sets the size of each pixel. will set the style in this function
@@ -140,7 +151,6 @@ function buildPixel(pixel, size) {
 
     return pixel.setAttribute('style', `width: ${pixelLength}px; height: ${pixelLength}px;`);
 }
-
 
 
 function toggleTheme() {
@@ -153,7 +163,6 @@ function toggleTheme() {
         lightMode();
 
     }
-
 }
 
 function eraseButton() {
