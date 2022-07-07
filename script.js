@@ -1,4 +1,4 @@
-// defaultBoard();
+defaultBoard();
 var isDrawing = false;
 
 //Colors used to fill color picker grid, and will be used to assign pixel color when selected by the user
@@ -92,28 +92,20 @@ function createBoard(size) {
     let board = document.querySelector('.board');
     board.setAttribute('style', `grid-template-columns: repeat(${size}, 1fr); grid-template-rows: repeat(${size}, 1fr)`);
     gridSizeSpan.textContent = `${size} x ${size}`;
+    board.addEventListener('mousedown', () => {
+        isDrawing = true;
+    })
+    board.addEventListener('mouseup', () => {
+        isDrawing = false;
+    })
+
     if (size > 0 && size <= 100) {
         for (let i = 0; i < Math.pow(size, 2); i++) {
             let pixel = document.createElement('div');
             pixel.className = 'pixel';
             buildPixel(pixel, size);
             board.append(pixel);
-
-            pixel.addEventListener('mouseover', () => {
-                pixel.addEventListener('mousedown', () => {
-                    isDrawing = true;
-                })
-                pixel.addEventListener('mouseup', () => {
-                    isDrawing = false;
-                })
-                if (isDrawing) {
-                    pixel.setAttribute('style', 'background-color: black');
-                }
-                if (!isDrawing) {
-                    return;
-                }
-            });
-            pixel.addEventListener('click', ()=> pixel.setAttribute('style', 'background-color: black'));
+            draw(pixel);
 
         }
         return board;
@@ -122,7 +114,7 @@ function createBoard(size) {
     }
 }
 
-createBoard(33);
+// createBoard(40);
 
 
 
@@ -130,16 +122,19 @@ createBoard(33);
 function defaultBoard() {
     let board = document.querySelector('.board');
     board.setAttribute('style', `grid-template-columns: repeat(16, 1fr); grid-template-rows: repeat(16, 1fr)`);
+    board.addEventListener('mousedown', () => {
+        isDrawing = true;
+    })
+    board.addEventListener('mouseup', () => {
+        isDrawing = false;
+    })
 
     for (let i = 0; i < Math.pow(16, 2); i++) {
         let pixel = document.createElement('div');
         pixel.className = 'pixel';
         buildPixel(pixel, 16);
-
         board.append(pixel);
-        pixel.addEventListener('mouseover', () => {
-            pixel.setAttribute('style', 'background-color: black')
-        });
+        draw(pixel);
     }
     return board;
 }
@@ -163,6 +158,21 @@ function toggleTheme() {
         lightMode();
 
     }
+}
+
+/*as of now, the default color is black and has one parameter. later on this will also take a color parameter so that the user can
+choose the color of the ink OR it only has 1 parameter, but the attribute uses a global color variable  to set the color*/
+function draw(pixel) {
+    pixel.addEventListener('mouseover', () => {
+        if (isDrawing) {
+            pixel.setAttribute('style', 'background-color: black');
+        }
+        if (!isDrawing) {
+            return;
+        }
+    });
+    pixel.addEventListener('click', () => pixel.setAttribute('style', 'background-color: black'));
+
 }
 
 function eraseButton() {
