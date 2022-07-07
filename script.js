@@ -72,7 +72,24 @@ eraseBtn.addEventListener('click', () => {
 });
 
 let blackBtn = document.querySelector('#black');
-blackBtn.addEventListener('click', () => penColor = 'black');
+blackBtn.addEventListener('click', () => {
+    penColor = 'black';
+    rgbBtn.classList.remove('rgb-animation');
+
+});
+
+//insert code here that will open up the color picker menu
+
+let customBtn = document.querySelector('#custom');
+customBtn.addEventListener('click', () => {
+    rgbBtn.classList.remove('rgb-animation');
+});
+
+
+let rgbBtn = document.querySelector('#rgb');
+rgbBtn.addEventListener('click', () => {
+    rgbBtn.classList.add('rgb-animation');
+});
 
 let fourBtn = document.querySelector('#four');
 fourBtn.addEventListener('click', () => {
@@ -80,6 +97,7 @@ fourBtn.addEventListener('click', () => {
     size = 4;
     createBoard();
     updateGridSlider()
+
 })
 
 let eightBtn = document.querySelector('#eight');
@@ -113,14 +131,6 @@ sixtyfourBtn.addEventListener('click', () => {
     createBoard();
     updateGridSlider();
 })
-
-
-
-// let customBtn = document.querySelector('.custom');
-// customBtn.addEventListener('click', () => {
-//     //insert code here that will open up the color picker menu
-// });
-
 
 
 
