@@ -28,16 +28,16 @@ const gridSizeSpan = gridSize.querySelector('span');
 
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
-var rgbSlider = document.getElementById("myRange");
+var gridSlider = document.getElementById("myRange");
 var output1 = document.getElementById("num1"),
     output2 = document.getElementById("num2");
 
-output1.innerHTML = rgbSlider.value; // Display the default slider value
-output2.innerHTML = rgbSlider.value; // Display the default slider value
+output1.innerHTML = gridSlider.value; // Display the default slider value
+output2.innerHTML = gridSlider.value; // Display the default slider value
 
 
 // Update the current slider value (each time you drag the slider handle)
-rgbSlider.oninput = function () {
+gridSlider.oninput = function () {
     output1.innerHTML = this.value;
     output2.innerHTML = this.value;
     gridSizeSpan.textContent = `${this.value} x ${this.value}`;
@@ -242,7 +242,7 @@ function clearBoard(){
 /*when the button to resize a grid is clicked by the user, the location of the grid slider should change,
 and should also update the text showing the dimension of the grid*/
 function updateGridSlider() {
-    rgbSlider.setAttribute('value', `${size}`);
+    gridSlider.setAttribute('value', `${size}`);
     output1.innerHTML = size;
     output2.innerHTML = size;
     
