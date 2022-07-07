@@ -58,7 +58,11 @@ for (const element of input) {
         display.style.background = `rgb(${red},${green},${blue})`;
 
         let applyBtn = document.querySelector('#apply-button');
-        applyBtn.addEventListener('click', () => penColor = `rgb(${red},${green},${blue})`);
+        applyBtn.addEventListener('click', () => {
+            eraserBtn.classList.remove('using-eraser');
+            rgbBtn.classList.remove('rgb-animation');
+            penColor = `rgb(${red},${green},${blue})`
+        });
     });
 }
 
@@ -66,29 +70,43 @@ for (const element of input) {
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
 //eventListeners for Buttons
-let eraseBtn = document.querySelector('.erase');
-eraseBtn.addEventListener('click', () => {
-    eraseButton();
+let resetBtn = document.querySelector('#reset');
+resetBtn.addEventListener('click', () => {
+    resetButton();
+    eraserBtn.classList.remove('using-eraser');
+
+
 });
 
 let blackBtn = document.querySelector('#black');
 blackBtn.addEventListener('click', () => {
     penColor = 'black';
     rgbBtn.classList.remove('rgb-animation');
+    eraserBtn.classList.remove('using-eraser');
+
 
 });
 
-//insert code here that will open up the color picker menu
+let eraserBtn = document.querySelector('#eraser');
+eraserBtn.addEventListener('click', ()=> {
+    penColor = 'white';
+    eraserBtn.classList.add('using-eraser');
+});
 
+//insert code here that will open up the color picker menu
 let customBtn = document.querySelector('#custom');
 customBtn.addEventListener('click', () => {
     rgbBtn.classList.remove('rgb-animation');
+    eraserBtn.classList.remove('using-eraser');
+
 });
 
 
 let rgbBtn = document.querySelector('#rgb');
 rgbBtn.addEventListener('click', () => {
     rgbBtn.classList.add('rgb-animation');
+    eraserBtn.classList.remove('using-eraser');
+
 });
 
 let fourBtn = document.querySelector('#four');
@@ -208,7 +226,8 @@ function draw(pixel) {
 }
 
 //clears board while remaining the grid size
-function eraseButton() {
+function resetButton() {
+    penColor = 'black';
     let pixel = document.querySelectorAll('.pixel');
     pixel.forEach(el => el.setAttribute('style', 'background-color: white'));
 }
@@ -247,7 +266,7 @@ function darkMode() {
     document.querySelector('#grid-size').setAttribute('style', 'background-color: #181921; color: white;');
     document.querySelector('#black').setAttribute('style', 'background-color: #181921; color: white;');
     document.querySelector('#rgb').setAttribute('style', 'background-color: #181921; color: white;');
-    document.querySelector('.erase').setAttribute('style', 'background-color: #181921; color: white;');
+    document.querySelector('#reset').setAttribute('style', 'background-color: #181921; color: white;');
     document.querySelector('.slider').setAttribute('style', 'background-color: #38404A');
 
     //hover effects for buttons
@@ -276,7 +295,7 @@ function lightMode() {
     document.querySelector('#grid-size').setAttribute('style', 'background-color: white; color: black;');
     document.querySelector('#black').setAttribute('style', 'background-color: white; color: black;');
     document.querySelector('#rgb').setAttribute('style', 'background-color: white; color: black;');
-    document.querySelector('.erase').setAttribute('style', 'background-color: white; color: black;');
+    document.querySelector('#reset').setAttribute('style', 'background-color: white; color: black;');
     document.querySelector('.slider').setAttribute('style', 'background-color: white;');
 
     //hover effects for buttons
