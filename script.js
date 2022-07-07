@@ -1,8 +1,9 @@
-defaultBoard();
+// defaultBoard();
 var isDrawing = false;
 
 //default values
 var penColor = 'black';//black
+var size = 16;
 
 //Colors used to fill color picker grid, and will be used to assign pixel color when selected by the user
 var colors =
@@ -58,8 +59,6 @@ for (const element of input) {
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
-
-
 //eventListeners for Buttons
 let eraseBtn = document.querySelector('.erase');
 eraseBtn.addEventListener('click', () => {
@@ -67,7 +66,48 @@ eraseBtn.addEventListener('click', () => {
 });
 
 let blackBtn = document.querySelector('#black');
-blackBtn.addEventListener('click', ( )=> penColor = 'black');
+blackBtn.addEventListener('click', () => penColor = 'black');
+
+let fourBtn = document.querySelector('#four');
+fourBtn.addEventListener('click', () => {
+    clearBoard();
+    size = 4;
+    createBoard();
+
+})
+
+let eightBtn = document.querySelector('#eight');
+eightBtn.addEventListener('click', () => {
+    clearBoard();
+    size = 8;
+    createBoard();
+
+})
+let sixteenBtn = document.querySelector('#sixteen');
+sixteenBtn.addEventListener('click', () => {
+    clearBoard();
+    size = 16;
+    createBoard();
+
+})
+let thirtytwoBtn = document.querySelector('#thirtytwo');
+thirtytwoBtn.addEventListener('click', () => {
+    clearBoard();
+    size = 32;
+    createBoard();
+
+})
+let sixtyfourBtn = document.querySelector('#sixtyfour');
+sixtyfourBtn.addEventListener('click', () => {
+    clearBoard();
+    size = 64;
+    createBoard();
+
+})
+
+
+
+
 
 
 // let customBtn = document.querySelector('.custom');
@@ -98,7 +138,7 @@ function buildColorPicker() {
 
 
 //user can enter a custom pixel density for the board
-function createBoard(size) {
+function createBoard() {
     let board = document.querySelector('.board');
     board.setAttribute('style', `grid-template-columns: repeat(${size}, 1fr); grid-template-rows: repeat(${size}, 1fr)`);
     gridSizeSpan.textContent = `${size} x ${size}`;
@@ -124,7 +164,7 @@ function createBoard(size) {
     }
 }
 
-// createBoard(40);
+createBoard();
 
 
 
@@ -187,6 +227,12 @@ function draw(pixel) {
 function eraseButton() {
     let pixel = document.querySelectorAll('.pixel');
     pixel.forEach(el => el.setAttribute('style', 'background-color: white'));
+}
+
+//clears the board of all pixels so that a new one can be generated when certain buttons are clicked
+function clearBoard(){
+    let pixel = document.querySelectorAll('.pixel');
+    pixel.forEach(el => el.remove());
 }
 
 function darkMode() {
