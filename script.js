@@ -122,6 +122,38 @@ sixtyfourBtn.addEventListener('click', () => {
 // });
 
 
+
+
+//user can enter a custom pixel density for the board
+function createBoard() {
+    let board = document.querySelector('.board');
+    board.setAttribute('style', `grid-template-columns: repeat(${size}, 1fr); grid-template-rows: repeat(${size}, 1fr)`);
+    gridSizeSpan.textContent = `${size} x ${size}`;
+    board.addEventListener('mousedown', () => {
+        isDrawing = true;
+    })
+    board.addEventListener('mouseup', () => {
+        isDrawing = false;
+    })
+
+    if (size > 0 && size <= 100) {
+        for (let i = 0; i < Math.pow(size, 2); i++) {
+            let pixel = document.createElement('div');
+            pixel.className = 'pixel';
+            buildPixel(pixel);
+            board.append(pixel);
+            draw(pixel);
+
+        }
+        return board;
+    } else {
+        return;
+    }
+}
+
+createBoard();
+
+
 //color picker grid for the left menu
 
 buildColorPicker()//run function when site loads, but will later have this open when "custom" button is clicked
@@ -142,79 +174,14 @@ function buildColorPicker() {
     }
 }
 
-
-//user can enter a custom pixel density for the board
-function createBoard() {
-    let board = document.querySelector('.board');
-    board.setAttribute('style', `grid-template-columns: repeat(${size}, 1fr); grid-template-rows: repeat(${size}, 1fr)`);
-    gridSizeSpan.textContent = `${size} x ${size}`;
-    board.addEventListener('mousedown', () => {
-        isDrawing = true;
-    })
-    board.addEventListener('mouseup', () => {
-        isDrawing = false;
-    })
-
-    if (size > 0 && size <= 100) {
-        for (let i = 0; i < Math.pow(size, 2); i++) {
-            let pixel = document.createElement('div');
-            pixel.className = 'pixel';
-            buildPixel(pixel, size);
-            board.append(pixel);
-            draw(pixel);
-
-        }
-        return board;
-    } else {
-        return;
-    }
-}
-
-createBoard();
-
-
-
-//Upon loading of webpage, the default board size will be 16x16
-function defaultBoard() {
-    let board = document.querySelector('.board');
-    board.setAttribute('style', `grid-template-columns: repeat(16, 1fr); grid-template-rows: repeat(16, 1fr)`);
-    board.addEventListener('mousedown', () => {
-        isDrawing = true;
-    })
-    board.addEventListener('mouseup', () => {
-        isDrawing = false;
-    })
-
-    for (let i = 0; i < Math.pow(16, 2); i++) {
-        let pixel = document.createElement('div');
-        pixel.className = 'pixel';
-        buildPixel(pixel, 16);
-        board.append(pixel);
-        draw(pixel);
-    }
-    return board;
-}
-
-
 //write a function that calculates and sets the size of each pixel. will set the style in this function
-function buildPixel(pixel, size) {
+function buildPixel(pixel) {
     let pixelLength = (696 / size) - 2;
 
     return pixel.setAttribute('style', `width: ${pixelLength}px; height: ${pixelLength}px;`);
 }
 
 
-function toggleTheme() {
-    num.innerHTML = counter++;
-
-    if (num.innerHTML % 2 === 0) {
-        darkMode();
-
-    } else {
-        lightMode();
-
-    }
-}
 
 /*as of now, the default color is black and has one parameter. later on this will also take a color parameter so that the user can
 choose the color of the ink OR it only has 1 parameter, but the attribute uses a global color variable  to set the color*/
@@ -251,6 +218,17 @@ function updateGridSlider() {
 
 }
 
+function toggleTheme() {
+    num.innerHTML = counter++;
+
+    if (num.innerHTML % 2 === 0) {
+        darkMode();
+
+    } else {
+        lightMode();
+
+    }
+}
 
 function darkMode() {
     document.body.setAttribute('style', 'background-color: #38404A;color: white');
@@ -279,10 +257,6 @@ function darkMode() {
     document.querySelector('#thirtytwo').setAttribute('style', 'background-color: #38404A; color: white');
     document.querySelector('#sixtyfour').setAttribute('style', 'background-color: #38404A; color: white');
     document.querySelector('#apply-button').setAttribute('style', 'background-color: #38404A; color: white');
-
-
-
-
 }
 
 function lightMode() {
@@ -312,7 +286,4 @@ function lightMode() {
     document.querySelector('#thirtytwo').setAttribute('style', 'background-color: white; color: black');
     document.querySelector('#sixtyfour').setAttribute('style', 'background-color: white; color: black');
     document.querySelector('#apply-button').setAttribute('style', 'background-color: white; color: black');
-
-
-
 }
