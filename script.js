@@ -1,7 +1,8 @@
 // defaultBoard();
-var isDrawing = false;
+
 
 //default values
+var isDrawing = false;
 var penColor = 'black';//black
 var size = 16;
 
@@ -26,21 +27,23 @@ const gridSize = document.querySelector('#grid-size');
 const gridSizeSpan = gridSize.querySelector('span');
 
 
-
 /*--------------------------------------------------------------------------------------------------------------------------*/
-var slider = document.getElementById("myRange");
+var rgbSlider = document.getElementById("myRange");
 var output1 = document.getElementById("num1"),
     output2 = document.getElementById("num2");
 
-output1.innerHTML = slider.value; // Display the default slider value
-output2.innerHTML = slider.value; // Display the default slider value
+output1.innerHTML = rgbSlider.value; // Display the default slider value
+output2.innerHTML = rgbSlider.value; // Display the default slider value
 
 
 // Update the current slider value (each time you drag the slider handle)
-slider.oninput = function () {
+rgbSlider.oninput = function () {
     output1.innerHTML = this.value;
     output2.innerHTML = this.value;
-
+    gridSizeSpan.textContent = `${this.value} x ${this.value}`;
+    clearBoard();
+    size = this.value;
+    createBoard();
 }
 
 
@@ -82,16 +85,16 @@ eightBtn.addEventListener('click', () => {
     size = 8;
     createBoard();
     updateGridSlider()
-
 })
+
 let sixteenBtn = document.querySelector('#sixteen');
 sixteenBtn.addEventListener('click', () => {
     clearBoard();
     size = 16;
     createBoard();
     updateGridSlider()
-
 })
+
 let thirtytwoBtn = document.querySelector('#thirtytwo');
 thirtytwoBtn.addEventListener('click', () => {
     clearBoard();
@@ -99,15 +102,13 @@ thirtytwoBtn.addEventListener('click', () => {
     createBoard();
     updateGridSlider()
 })
+
 let sixtyfourBtn = document.querySelector('#sixtyfour');
 sixtyfourBtn.addEventListener('click', () => {
     clearBoard();
     size = 64;
     createBoard();
     updateGridSlider();
-
-
-
 })
 
 
@@ -241,7 +242,7 @@ function clearBoard(){
 /*when the button to resize a grid is clicked by the user, the location of the grid slider should change,
 and should also update the text showing the dimension of the grid*/
 function updateGridSlider() {
-    slider.setAttribute('value', `${size}`);
+    rgbSlider.setAttribute('value', `${size}`);
     output1.innerHTML = size;
     output2.innerHTML = size;
     
