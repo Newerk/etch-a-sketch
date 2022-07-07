@@ -73,7 +73,7 @@ fourBtn.addEventListener('click', () => {
     clearBoard();
     size = 4;
     createBoard();
-
+    updateGridSlider()
 })
 
 let eightBtn = document.querySelector('#eight');
@@ -81,6 +81,7 @@ eightBtn.addEventListener('click', () => {
     clearBoard();
     size = 8;
     createBoard();
+    updateGridSlider()
 
 })
 let sixteenBtn = document.querySelector('#sixteen');
@@ -88,6 +89,7 @@ sixteenBtn.addEventListener('click', () => {
     clearBoard();
     size = 16;
     createBoard();
+    updateGridSlider()
 
 })
 let thirtytwoBtn = document.querySelector('#thirtytwo');
@@ -95,18 +97,18 @@ thirtytwoBtn.addEventListener('click', () => {
     clearBoard();
     size = 32;
     createBoard();
-
+    updateGridSlider()
 })
 let sixtyfourBtn = document.querySelector('#sixtyfour');
 sixtyfourBtn.addEventListener('click', () => {
     clearBoard();
     size = 64;
     createBoard();
+    updateGridSlider();
+
+
 
 })
-
-
-
 
 
 
@@ -224,6 +226,7 @@ function draw(pixel) {
     });
 }
 
+//clears board while remaining the grid size
 function eraseButton() {
     let pixel = document.querySelectorAll('.pixel');
     pixel.forEach(el => el.setAttribute('style', 'background-color: white'));
@@ -234,6 +237,16 @@ function clearBoard(){
     let pixel = document.querySelectorAll('.pixel');
     pixel.forEach(el => el.remove());
 }
+
+/*when the button to resize a grid is clicked by the user, the location of the grid slider should change,
+and should also update the text showing the dimension of the grid*/
+function updateGridSlider() {
+    slider.setAttribute('value', `${size}`);
+    output1.innerHTML = size;
+    output2.innerHTML = size;
+    
+}
+
 
 function darkMode() {
     document.body.setAttribute('style', 'background-color: #38404A;color: white');
