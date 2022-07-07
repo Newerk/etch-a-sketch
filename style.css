@@ -322,10 +322,10 @@ button {
 
   #red, #green , #blue {
     appearance: none;
-    width: 105%; /* Full-width */
-    height: 10px; /* Specified height */
+    width: 105%; 
+    height: 10px; 
     background: black;
-    outline: none; /* Remove outline */
+    outline: none; 
     border-radius: 50px;
 
   }

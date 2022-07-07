@@ -51,11 +51,14 @@ gridSlider.oninput = function () {
 var input = document.querySelectorAll("input");
 for (const element of input) {
     element.addEventListener("input", function () {
-        var red = document.getElementById("red").value,
+        let red = document.getElementById("red").value,
             green = document.getElementById("green").value,
             blue = document.getElementById("blue").value;
-        var display = document.getElementById("color-preview");
+        let display = document.getElementById("color-preview");
         display.style.background = `rgb(${red},${green},${blue})`;
+
+        let applyBtn = document.querySelector('#apply-button');
+        applyBtn.addEventListener('click', () => penColor = `rgb(${red},${green},${blue})`);
     });
 }
 
@@ -131,7 +134,7 @@ function buildColorPicker() {
         cPixel.className = 'cPixel';
         cPixel.setAttribute('style', `background-color: ${colors[i]}`);
 
-        cPixel.addEventListener('click', ()=> {
+        cPixel.addEventListener('click', () => {
             penColor = colors[i];
         })
         grid.append(cPixel);
@@ -234,7 +237,7 @@ function eraseButton() {
 }
 
 //clears the board of all pixels so that a new one can be generated when certain buttons are clicked
-function clearBoard(){
+function clearBoard() {
     let pixel = document.querySelectorAll('.pixel');
     pixel.forEach(el => el.remove());
 }
@@ -245,7 +248,7 @@ function updateGridSlider() {
     gridSlider.setAttribute('value', `${size}`);
     output1.innerHTML = size;
     output2.innerHTML = size;
-    
+
 }
 
 
