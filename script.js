@@ -84,6 +84,10 @@ function buildColorPicker() {
         let cPixel = document.createElement('div');
         cPixel.className = 'cPixel';
         cPixel.setAttribute('style', `background-color: ${colors[i]}`);
+
+        cPixel.addEventListener('click', ()=> {
+            penColor = colors[i];
+        })
         grid.append(cPixel);
 
     }
@@ -166,16 +170,15 @@ function toggleTheme() {
 /*as of now, the default color is black and has one parameter. later on this will also take a color parameter so that the user can
 choose the color of the ink OR it only has 1 parameter, but the attribute uses a global color variable  to set the color*/
 function draw(pixel) {
-    pixel.addEventListener('mousedown', () => pixel.setAttribute('style', 'background-color: black'));
+    pixel.addEventListener('mousedown', () => pixel.setAttribute('style', `background-color: ${penColor}`));
     pixel.addEventListener('mouseover', () => {
         if (isDrawing) {
-            pixel.setAttribute('style', 'background-color: black');
+            pixel.setAttribute('style', `background-color: ${penColor}`);
         }
         if (!isDrawing) {
             return;
         }
     });
-
 }
 
 function eraseButton() {
