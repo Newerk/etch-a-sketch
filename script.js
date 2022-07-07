@@ -1,6 +1,9 @@
 defaultBoard();
 var isDrawing = false;
 
+//default values
+var penColor = '#000000';//black
+
 //Colors used to fill color picker grid, and will be used to assign pixel color when selected by the user
 var colors =
     ["F18F99", "FABFA5", "FFEC7A", "6BFEB0", "6CB5FF", "B59EF6", "D375F9",
@@ -53,9 +56,7 @@ for (const element of input) {
 }
 
 
-
 /*--------------------------------------------------------------------------------------------------------------------------*/
-
 
 
 
@@ -73,6 +74,8 @@ eraseBtn.addEventListener('click', () => {
 
 
 //color picker grid for the left menu
+
+buildColorPicker()//run function when site loads, but will later have this open when "custom" button is clicked
 function buildColorPicker() {
     let grid = document.querySelector('.color-picker-grid');
     grid.setAttribute('style', 'grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(7, 1fr)');
