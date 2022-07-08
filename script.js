@@ -14,15 +14,13 @@ var colors =
         "#520912", "#893107", "#534700", "#002812", "#00213F", "#240974", "#2D0340"];
 
 
-const num = document.getElementById('num');
-
 //counter used to track if site is using light or dark theme. Theme depends if its even or odd
+const num = document.getElementById('num');
 var counter = 0;
 num.innerHTML = counter;
 
 
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
 var gridSlider = document.getElementById("myRange");
 var output1 = document.getElementById("num1"),
     output2 = document.getElementById("num2");
@@ -41,7 +39,7 @@ gridSlider.oninput = function () {
 }
 
 
-
+//retrieve values from rgb sliders and use them to create pen color and change preview box color
 var input = document.querySelectorAll("input");
 for (const element of input) {
     element.addEventListener("input", function () {
@@ -62,10 +60,11 @@ for (const element of input) {
 }
 
 
-const rgbList = ["#ff2400", "#e81d1d", "#e8b71d", "#e3e81d", "#1de840", "#1ddde8", "#2b1de8", "#dd00f3"];
-
+//randomly choose a color to be used when the RGB button is active
+const rgbList = ["#ff2400", "#e81d1d", "#e8b71d", "#e3e81d",
+                 "#1de840", "#1ddde8", "#2b1de8", "#dd00f3"];
 let randomColor = () => rgbList[Math.floor(Math.random() * 8)];
-/*--------------------------------------------------------------------------------------------------------------------------*/
+
 
 //eventListeners for Buttons
 let eraserBtn = document.querySelector('#eraser');
@@ -145,6 +144,7 @@ sixtyfourBtn.addEventListener('click', () => {
 })
 
 
+//create canvas to be drawn on by the user
 function createBoard() {
     let board = document.querySelector('.board');
     board.setAttribute('style', `grid-template-columns: repeat(${size}, 1fr); grid-template-rows: repeat(${size}, 1fr)`);
@@ -154,6 +154,7 @@ function createBoard() {
     board.addEventListener('mouseup', () => {
         isDrawing = false;
     })
+
 
     if (size > 0 && size <= 100) {
         for (let i = 0; i < Math.pow(size, 2); i++) {
@@ -192,7 +193,7 @@ function buildColorPicker() {
     }
 }
 
-//write a function that calculates and sets the size of each pixel. will set the style in this function
+//calculates and sets the size of each pixel.
 function buildPixel(pixel) {
     let pixelLength = (696 / size) - 2;
 
@@ -200,13 +201,13 @@ function buildPixel(pixel) {
 }
 
 
-
+//function that gives the user drawing capabilties, and will also determine which color pen should be used
 function draw(pixel) {
     pixel.addEventListener('mousedown', () => {
         if (useRGB === true) {
             pixel.setAttribute('style', `background-color: ${randomColor()}`)
 
-        } else if (useRGB === false) {pixel.setAttribute('style', `background-color: ${penColor}`);}
+        } else if (useRGB === false) { pixel.setAttribute('style', `background-color: ${penColor}`); }
     });
     pixel.addEventListener('mouseover', () => {
         if (isDrawing) {
@@ -219,9 +220,11 @@ function draw(pixel) {
             return;
         }
     });
+
+
 }
 
-//clears board while maintaining the grid size
+//clears board while retaining the grid size
 function resetButton() {
     penColor = 'black';
     let pixel = document.querySelectorAll('.pixel');
@@ -234,7 +237,7 @@ function clearBoard() {
     pixel.forEach(el => el.remove());
 }
 
-/*when the button to resize a grid is clicked by the user, the location of the grid slider should change,
+/*when the button to resize a grid is clicked by the user, the location of the grid slider will change,
 and should also update the text showing the dimension of the grid*/
 function updateGridSlider() {
     gridSlider.setAttribute('value', `${size}`);
@@ -243,6 +246,7 @@ function updateGridSlider() {
 
 }
 
+//Only monsters use light theme
 function toggleTheme() {
     num.innerHTML = counter++;
 
