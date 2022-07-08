@@ -70,6 +70,14 @@ for (const element of input) {
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
 //eventListeners for Buttons
+let eraserBtn = document.querySelector('#eraser');
+eraserBtn.addEventListener('click', ()=> {
+    penColor = 'white';
+    eraserBtn.classList.add('using-eraser');
+    rgbBtn.classList.remove('rgb-animation');
+
+});
+
 let resetBtn = document.querySelector('#reset');
 resetBtn.addEventListener('click', () => {
     resetButton();
@@ -87,19 +95,13 @@ blackBtn.addEventListener('click', () => {
 
 });
 
-let eraserBtn = document.querySelector('#eraser');
-eraserBtn.addEventListener('click', ()=> {
-    penColor = 'white';
-    eraserBtn.classList.add('using-eraser');
-});
-
 //insert code here that will open up the color picker menu
-let customBtn = document.querySelector('#custom');
-customBtn.addEventListener('click', () => {
-    rgbBtn.classList.remove('rgb-animation');
-    eraserBtn.classList.remove('using-eraser');
+// let customBtn = document.querySelector('#custom');
+// customBtn.addEventListener('click', () => {
+//     rgbBtn.classList.remove('rgb-animation');
+//     eraserBtn.classList.remove('using-eraser');
 
-});
+// });
 
 
 let rgbBtn = document.querySelector('#rgb');
@@ -262,11 +264,11 @@ function toggleTheme() {
 function darkMode() {
     document.body.setAttribute('style', 'background-color: #38404A;color: white');
     document.querySelector('.header').setAttribute('style', 'background-color: #181921');
-    document.querySelector('#custom').setAttribute('style', 'background-color: #181921; color: white;');
     document.querySelector('#grid-size').setAttribute('style', 'background-color: #181921; color: white;');
     document.querySelector('#black').setAttribute('style', 'background-color: #181921; color: white;');
     document.querySelector('#rgb').setAttribute('style', 'background-color: #181921; color: white;');
     document.querySelector('#reset').setAttribute('style', 'background-color: #181921; color: white;');
+    document.querySelector('#eraser').setAttribute('style', 'background-color: #181921; color: white;');
     document.querySelector('.slider').setAttribute('style', 'background-color: #38404A');
 
     //hover effects for buttons
@@ -291,11 +293,11 @@ function darkMode() {
 function lightMode() {
     document.body.setAttribute('style', 'background-color: #white ;color: black');
     document.querySelector('.header').setAttribute('style', 'background-color: #D9D9D9');
-    document.querySelector('#custom').setAttribute('style', 'background-color: white; color: black;');
     document.querySelector('#grid-size').setAttribute('style', 'background-color: white; color: black;');
     document.querySelector('#black').setAttribute('style', 'background-color: white; color: black;');
     document.querySelector('#rgb').setAttribute('style', 'background-color: white; color: black;');
     document.querySelector('#reset').setAttribute('style', 'background-color: white; color: black;');
+    document.querySelector('#eraser').setAttribute('style', 'background-color: white; color: black;');
     document.querySelector('.slider').setAttribute('style', 'background-color: white;');
 
     //hover effects for buttons

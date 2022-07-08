@@ -66,6 +66,8 @@ body {
 
 .bottom {
     display: flex;
+    position: absolute;
+    top: 105px;
 }
 
 .erase-button-container {
@@ -74,10 +76,11 @@ body {
 
 }
 
-#reset, #eraser {
+#reset,
+#eraser {
     border-top: 0;
     border-bottom: 5px solid black;
-    
+
 }
 
 button {
@@ -94,44 +97,114 @@ button {
     text-align: center;
 }
 
-#custom,
-#black, #eraser {
+/* #custom, */
+#black,
+#eraser {
     border-right: 0;
+}
+
+#black:active {
+    font-size: 11px;
+}
+
+/* #custom:active {
+    font-size: 11px;
+
+} */
+
+#grid-size:active {
+    font-size: 11px;
+
+}
+
+#rgb {
+    border-right: 0;
+}
+
+#rgb:active {
+    font-size: 11px;
+
+}
+
+#eraser:active {
+    font-size: 11px;
+
+}
+
+#reset:active {
+    font-size: 11px;
+
 }
 
 .rgb-animation {
     background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
     background-size: 1800% 1800%;
-    
+
     -webkit-animation: rainbow 18s ease infinite;
     -z-animation: rainbow 18s ease infinite;
     -o-animation: rainbow 18s ease infinite;
-      animation: rainbow 18s ease infinite;}
-    
-    @-webkit-keyframes rainbow {
-        0%{background-position:0% 82%}
-        50%{background-position:100% 19%}
-        100%{background-position:0% 82%}
-    }
-    @-moz-keyframes rainbow {
-        0%{background-position:0% 82%}
-        50%{background-position:100% 19%}
-        100%{background-position:0% 82%}
-    }
-    @-o-keyframes rainbow {
-        0%{background-position:0% 82%}
-        50%{background-position:100% 19%}
-        100%{background-position:0% 82%}
-    }
-    @keyframes rainbow { 
-        0%{background-position:0% 82%}
-        50%{background-position:100% 19%}
-        100%{background-position:0% 82%}
-  }
+    animation: rainbow 18s ease infinite;
+}
 
-  .using-eraser {
-    background-color: lightpink;
-  }
+@-webkit-keyframes rainbow {
+    0% {
+        background-position: 0% 82%
+    }
+
+    50% {
+        background-position: 100% 19%
+    }
+
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+@-moz-keyframes rainbow {
+    0% {
+        background-position: 0% 82%
+    }
+
+    50% {
+        background-position: 100% 19%
+    }
+
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+@-o-keyframes rainbow {
+    0% {
+        background-position: 0% 82%
+    }
+
+    50% {
+        background-position: 100% 19%
+    }
+
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 82%
+    }
+
+    50% {
+        background-position: 100% 19%
+    }
+
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+.using-eraser {
+    background: linear-gradient(124deg, lightcoral, lightcoral);
+}
 
 /* ----------------BUILD BOARD--------------- */
 
@@ -149,7 +222,7 @@ button {
 }
 
 /* -------------COLOR PICKER GRID------------ */
-.color-picker-grid{
+.color-picker-grid {
     display: grid;
     height: 245px;
     width: 245px;
@@ -205,7 +278,8 @@ button {
 }
 
 /* -----------------MENUS----------------- */
-.menu-left-header, .menu-right-header{
+.menu-left-header,
+.menu-right-header {
     display: flex;
     align-items: center;
     font-size: 32px;
@@ -213,19 +287,8 @@ button {
 
 .title {
     margin-left: auto;
-    margin-right: auto;  
+    margin-right: auto;
 
-}
-
-.x-button {
-    border: none;
-    width: 20px;
-    height: 20px;
-    margin-left: 90%;
-    position: absolute;
-    z-index: 2;
-    font-size: 20px;
-    background-color: transparent;
 }
 
 .left-menu {
@@ -256,7 +319,7 @@ button {
     height: 40px;
     width: 150px;
     background-color: rgb(0, 0, 0);
-    
+
 }
 
 #apply-button {
@@ -296,97 +359,127 @@ button {
     width: 240px;
     font-size: 28px;
     background-color: white;
-    
+
 
 }
 
 /* ------------------SLIDERS------------------ */
 
 .right-menu-slide-container {
-     width: 240px;
-     margin-left: 38px;
-     margin-top: 80px;
+    width: 240px;
+    margin-left: 38px;
+    margin-top: 80px;
 }
 
 .grid-slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
+    -webkit-appearance: none;
+    /* Override default CSS styles */
     appearance: none;
-    width: 100%; /* Full-width */
-    height: 10px; /* Specified height */
+    width: 100%;
+    /* Full-width */
+    height: 10px;
+    /* Specified height */
     background: black;
-    outline: none; /* Remove outline */
-     border-radius: 50px;
+    outline: none;
+    /* Remove outline */
+    border-radius: 50px;
 }
 
 .grid-slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
+    -webkit-appearance: none;
+    /* Override default look */
     appearance: none;
-    width: 30px; /* Set a specific slider handle width */
-    height: 30px; /* Slider handle height */
-    background: white; /* white background */
-    cursor: pointer; /* Cursor on hover */
+    width: 30px;
+    /* Set a specific slider handle width */
+    height: 30px;
+    /* Slider handle height */
+    background: white;
+    /* white background */
+    cursor: pointer;
+    /* Cursor on hover */
     border: 5px solid black;
     border-radius: 50%;
-  }
+}
 
-  .grid-slider::-moz-range-thumb {
-    width: 30px; /* Set a specific slider handle width */
-    height: 30px; /* Slider handle height */
-    background: white; /* White background */
-    cursor: pointer; /* Cursor on hover */
-  }
+.grid-slider::-moz-range-thumb {
+    width: 30px;
+    /* Set a specific slider handle width */
+    height: 30px;
+    /* Slider handle height */
+    background: white;
+    /* White background */
+    cursor: pointer;
+    /* Cursor on hover */
+}
 
 
-  .rgb-slider-container {
+.rgb-slider-container {
     margin-top: 40px;
     display: flex;
     flex-direction: column;
     width: 240px;
     margin-left: 30px;
-    gap: 40px;    
-  }
+    gap: 40px;
+}
 
-  #red, #green , #blue {
+#red,
+#green,
+#blue {
     appearance: none;
-    width: 105%; 
-    height: 10px; 
+    width: 105%;
+    height: 10px;
     background: black;
-    outline: none; 
+    outline: none;
     border-radius: 50px;
 
-  }
+}
 
-  #red::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
+#red::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
     appearance: none;
-    width: 30px; /* Set a specific slider handle width */
-    height: 30px; /* Slider handle height */
-    background: #E01D2E; /* red background */
-    cursor: pointer; /* Cursor on hover */
+    width: 30px;
+    /* Set a specific slider handle width */
+    height: 30px;
+    /* Slider handle height */
+    background: #E01D2E;
+    /* red background */
+    cursor: pointer;
+    /* Cursor on hover */
     border: 5px solid black;
     border-radius: 50%;
-  }
+}
 
-  #green::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
+#green::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
     appearance: none;
-    width: 30px; /* Set a specific slider handle width */
-    height: 30px; /* Slider handle height */
-    background: #00B453; /* white background */
-    cursor: pointer; /* Cursor on hover */
+    width: 30px;
+    /* Set a specific slider handle width */
+    height: 30px;
+    /* Slider handle height */
+    background: #00B453;
+    /* white background */
+    cursor: pointer;
+    /* Cursor on hover */
     border: 5px solid black;
     border-radius: 50%;
 
-  }
+}
 
-  #blue::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
+#blue::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
     appearance: none;
-    width: 30px; /* Set a specific slider handle width */
-    height: 30px; /* Slider handle height */
-    background: #0171DD; /* white background */
-    cursor: pointer; /* Cursor on hover */
+    width: 30px;
+    /* Set a specific slider handle width */
+    height: 30px;
+    /* Slider handle height */
+    background: #0171DD;
+    /* white background */
+    cursor: pointer;
+    /* Cursor on hover */
     border: 5px solid black;
     border-radius: 50%;
 
-  }
+}
