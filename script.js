@@ -1,12 +1,9 @@
-// defaultBoard();
-
-
-//default values
 var isDrawing = false;
+var useRGB = false;
 var penColor = 'black';//black
 var size = 16;
+createBoard();
 
-//Colors used to fill color picker grid, and will be used to assign pixel color when selected by the user
 var colors =
     ["#F18F99", "#FABFA5", "#FFEC7A", "#6BFEB0", "#6CB5FF", "#B59EF6", "#D375F9",
         "#ED707C", "#F9AD89", "#FFE756", "#23FF88", "#40A2FF", "#9E83F4", "#C451F4",
@@ -59,20 +56,20 @@ for (const element of input) {
             eraserBtn.classList.remove('using-eraser');
             rgbBtn.classList.remove('rgb-animation');
             penColor = `rgb(${red},${green},${blue})`
+            useRGB = false;
         });
     });
 }
 
 
-const rgbList=["#ff2400", "#e81d1d", "#e8b71d", "#e3e81d", "#1de840", "#1ddde8", "#2b1de8", "#dd00f3"];
+const rgbList = ["#ff2400", "#e81d1d", "#e8b71d", "#e3e81d", "#1de840", "#1ddde8", "#2b1de8", "#dd00f3"];
 
-let randomColor = () => rgbList[Math.floor(Math.random()*8)];
-console.log(randomColor());
+let randomColor = () => rgbList[Math.floor(Math.random() * 8)];
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
 //eventListeners for Buttons
 let eraserBtn = document.querySelector('#eraser');
-eraserBtn.addEventListener('click', ()=> {
+eraserBtn.addEventListener('click', () => {
     penColor = 'white';
     eraserBtn.classList.add('using-eraser');
     rgbBtn.classList.remove('rgb-animation');
@@ -83,6 +80,7 @@ let resetBtn = document.querySelector('#reset');
 resetBtn.addEventListener('click', () => {
     resetButton();
     eraserBtn.classList.remove('using-eraser');
+    useRGB = false;
 
 
 });
@@ -92,6 +90,7 @@ blackBtn.addEventListener('click', () => {
     penColor = 'black';
     rgbBtn.classList.remove('rgb-animation');
     eraserBtn.classList.remove('using-eraser');
+    useRGB = false;
 });
 
 
@@ -99,7 +98,8 @@ let rgbBtn = document.querySelector('#rgb');
 rgbBtn.addEventListener('click', () => {
     rgbBtn.classList.add('rgb-animation');
     eraserBtn.classList.remove('using-eraser');
-    
+    useRGB = true;
+
 });
 
 let fourBtn = document.querySelector('#four');
@@ -144,8 +144,6 @@ sixtyfourBtn.addEventListener('click', () => {
 })
 
 
-
-//user can enter a custom pixel density for the board
 function createBoard() {
     let board = document.querySelector('.board');
     board.setAttribute('style', `grid-template-columns: repeat(${size}, 1fr); grid-template-rows: repeat(${size}, 1fr)`);
@@ -171,12 +169,11 @@ function createBoard() {
     }
 }
 
-createBoard();
+
 
 
 //color picker grid for the left menu
-
-buildColorPicker()//run function when site loads, but will later have this open when "custom" button is clicked
+buildColorPicker()
 function buildColorPicker() {
     let grid = document.querySelector('.color-picker-grid');
     grid.setAttribute('style', 'grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(7, 1fr)');
@@ -203,13 +200,19 @@ function buildPixel(pixel) {
 
 
 
-/*as of now, the default color is black and has one parameter. later on this will also take a color parameter so that the user can
-choose the color of the ink OR it only has 1 parameter, but the attribute uses a global color variable  to set the color*/
 function draw(pixel) {
-    pixel.addEventListener('mousedown', () => pixel.setAttribute('style', `background-color: ${penColor}`));
+    pixel.addEventListener('mousedown', () => {
+        if (useRGB === true) {
+            pixel.setAttribute('style', `background-color: ${randomColor()}`)
+
+        } else if (useRGB === false) {pixel.setAttribute('style', `background-color: ${penColor}`);}
+    });
     pixel.addEventListener('mouseover', () => {
         if (isDrawing) {
             pixel.setAttribute('style', `background-color: ${penColor}`);
+            if (useRGB === true) {
+                pixel.setAttribute('style', `background-color: ${randomColor()}`);
+            }
         }
         if (!isDrawing) {
             return;
@@ -217,7 +220,7 @@ function draw(pixel) {
     });
 }
 
-//clears board while remaining the grid size
+//clears board while maintaining the grid size
 function resetButton() {
     penColor = 'black';
     let pixel = document.querySelectorAll('.pixel');
