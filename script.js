@@ -73,6 +73,7 @@ eraserBtn.addEventListener('click', () => {
     penColor = 'white';
     eraserBtn.classList.add('using-eraser');
     rgbBtn.classList.remove('rgb-animation');
+    useRGB = false;
 
 });
 
