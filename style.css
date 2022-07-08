@@ -107,19 +107,6 @@ button {
     font-size: 11px;
 }
 
-/* #custom:active {
-    font-size: 11px;
-
-} */
-
-#grid-size:active {
-    font-size: 11px;
-
-}
-
-#rgb {
-    border-right: 0;
-}
 
 #rgb:active {
     font-size: 11px;

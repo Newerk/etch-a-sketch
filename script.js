@@ -23,8 +23,6 @@ const num = document.getElementById('num');
 var counter = 0;
 num.innerHTML = counter;
 
-const gridSize = document.querySelector('#grid-size');
-const gridSizeSpan = gridSize.querySelector('span');
 
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
@@ -40,7 +38,6 @@ output2.innerHTML = gridSlider.value; // Display the default slider value
 gridSlider.oninput = function () {
     output1.innerHTML = this.value;
     output2.innerHTML = this.value;
-    gridSizeSpan.textContent = `${this.value} x ${this.value}`;
     clearBoard();
     size = this.value;
     createBoard();
@@ -67,6 +64,10 @@ for (const element of input) {
 }
 
 
+const rgbList=["#ff2400", "#e81d1d", "#e8b71d", "#e3e81d", "#1de840", "#1ddde8", "#2b1de8", "#dd00f3"];
+
+let randomColor = () => rgbList[Math.floor(Math.random()*8)];
+console.log(randomColor());
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
 //eventListeners for Buttons
@@ -91,24 +92,14 @@ blackBtn.addEventListener('click', () => {
     penColor = 'black';
     rgbBtn.classList.remove('rgb-animation');
     eraserBtn.classList.remove('using-eraser');
-
-
 });
-
-//insert code here that will open up the color picker menu
-// let customBtn = document.querySelector('#custom');
-// customBtn.addEventListener('click', () => {
-//     rgbBtn.classList.remove('rgb-animation');
-//     eraserBtn.classList.remove('using-eraser');
-
-// });
 
 
 let rgbBtn = document.querySelector('#rgb');
 rgbBtn.addEventListener('click', () => {
     rgbBtn.classList.add('rgb-animation');
     eraserBtn.classList.remove('using-eraser');
-
+    
 });
 
 let fourBtn = document.querySelector('#four');
@@ -158,7 +149,6 @@ sixtyfourBtn.addEventListener('click', () => {
 function createBoard() {
     let board = document.querySelector('.board');
     board.setAttribute('style', `grid-template-columns: repeat(${size}, 1fr); grid-template-rows: repeat(${size}, 1fr)`);
-    gridSizeSpan.textContent = `${size} x ${size}`;
     board.addEventListener('mousedown', () => {
         isDrawing = true;
     })
@@ -264,7 +254,6 @@ function toggleTheme() {
 function darkMode() {
     document.body.setAttribute('style', 'background-color: #38404A;color: white');
     document.querySelector('.header').setAttribute('style', 'background-color: #181921');
-    document.querySelector('#grid-size').setAttribute('style', 'background-color: #181921; color: white;');
     document.querySelector('#black').setAttribute('style', 'background-color: #181921; color: white;');
     document.querySelector('#rgb').setAttribute('style', 'background-color: #181921; color: white;');
     document.querySelector('#reset').setAttribute('style', 'background-color: #181921; color: white;');
@@ -293,7 +282,6 @@ function darkMode() {
 function lightMode() {
     document.body.setAttribute('style', 'background-color: #white ;color: black');
     document.querySelector('.header').setAttribute('style', 'background-color: #D9D9D9');
-    document.querySelector('#grid-size').setAttribute('style', 'background-color: white; color: black;');
     document.querySelector('#black').setAttribute('style', 'background-color: white; color: black;');
     document.querySelector('#rgb').setAttribute('style', 'background-color: white; color: black;');
     document.querySelector('#reset').setAttribute('style', 'background-color: white; color: black;');
