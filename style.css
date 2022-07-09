@@ -265,6 +265,7 @@ button {
 }
 
 /* -----------------MENUS----------------- */
+
 .menu-left-header,
 .menu-right-header {
     display: flex;
@@ -318,6 +319,10 @@ button {
 
 }
 
+#apply-button:active{
+    font-size: 18px;
+}
+
 .right-menu {
     z-index: 1;
     position: absolute;
@@ -349,6 +354,11 @@ button {
 
 
 }
+
+.right-menu-buttons-container button:active {
+    font-size: 25px;
+}
+
 
 /* ------------------SLIDERS------------------ */
 

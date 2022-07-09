@@ -187,6 +187,9 @@ function buildColorPicker() {
 
         cPixel.addEventListener('click', () => {
             penColor = colors[i];
+            rgbBtn.classList.remove('rgb-animation');
+            eraserBtn.classList.remove('using-eraser');
+            useRGB = false;
         })
         grid.append(cPixel);
 
